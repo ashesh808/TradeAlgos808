@@ -13,34 +13,77 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<ActionResult> Index()
     {
-        return View();
+        string apiUrl = "https://www.alphavantage.co/query"; // API endpoint URL
+        string apiKey = "DLLF3V8I0GWA7MJG"; // Replace with your API key
+
+        string function = "LISTING_STATUS";
+        string state = "active"; // or "delisted"
+        string date = ""; // Optionally, set a specific date
+
+        string url = $"{apiUrl}?function={function}&state={state}&date={date}&apikey={apiKey}";
+
+
+        using (HttpClient client = new HttpClient())
+        {
+            HttpResponseMessage response = await client.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var csvData = await response.Content.ReadAsStringAsync();
+
+                // Process the CSV data
+                var stockData = ParseCsvData(csvData);
+
+                // Pass the stockData to a view or perform further operations
+                return View(stockData);
+            }
+            else
+            {
+                // Handle API error response
+                // You can redirect to an error page or display a suitable error message
+                return View("Error");
+            }
+        }
     }
 
-    // public async Task<ActionResult> Today()
-    // {
-    //     var stockService = new StockService();
-    //     var stockData = await stockService.GetStockDataAsync();
+    private List<StockViewModel> ParseCsvData(string csvData)
+    {
+        var stockData = new List<StockViewModel>();
 
-    //     if (stockData != null)
-    //     {
-    //         var stockViewModels = stockData.Select(d => new StockViewModel
-    //         {
-    //             Symbol = d.symbol,
-    //             Name = d.name,
-    //             Currency = d.currency
-    //             // Initialize other properties as needed
-    //         });
+        using (var reader = new StringReader(csvData))
+        {
+            string line;
+            bool isFirstLine = true;
 
-    //         return View(stockViewModels);
-    //     }
-    //     else
-    //     {
-    //         // Handle error or display a message to the user
-    //         return View("Error");
-    //     }
-    // }
+            while ((line = reader.ReadLine()) != null)
+            {
+                if (isFirstLine)
+                {
+                    // Skip the header line
+                    isFirstLine = false;
+                    continue;
+                }
+
+                var values = line.Split(',');
+
+                // Map the values to your Stock model properties
+                var stock = new StockViewModel
+                {
+                    Symbol = values[0],
+                    Name = values[1],
+                    Exchange = values[2],
+                    Type = values[3]
+                };
+
+                stockData.Add(stock);
+            }
+        }
+
+        return stockData;
+    }
+
 
     public IActionResult About()
     {

@@ -1,6 +1,6 @@
 @model IEnumerable<StockViewModel>
 
-<h1>Stock Data for Today</h1>
+<h1>Stock and EFT Data for Today</h1>
 
 <table>
     <tr>
@@ -15,7 +15,7 @@
         <tr>
             <td>@stock.Symbol</td>
             <td>@stock.Name</td>
-            <td>@stock.Currency</td>
+            <td>@stock.Exchange</td>
             <!-- Display other properties as needed -->
         </tr>
     }
