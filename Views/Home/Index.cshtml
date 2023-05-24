@@ -20,7 +20,12 @@
     {
         <tr>
             <td>@stock.Symbol</td>
-            <td>@stock.Name</td>
+            <td>
+                <a href="@Url.Action("Details", "Stock", new { stockId = stock.Symbol })">
+                    @stock.Name
+                </a>
+
+            </td>
             @if (stock.Type == "Stock")
             {
                 <td>S</td>

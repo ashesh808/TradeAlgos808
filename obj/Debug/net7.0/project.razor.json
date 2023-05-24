@@ -18645,6 +18645,11 @@
   "RootNamespace": "MvcMovie",
   "Documents": [
     {
+      "FilePath": "/Users/ashesh808/Documents/CSharp/TradeAlgos808/Views/Stock/Details.cshtml",
+      "TargetPath": "Views\\Stock\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/ashesh808/Documents/CSharp/TradeAlgos808/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
