@@ -20,14 +20,7 @@ public class StockController : Controller
 
         string details_url = $"{details_apiUrl}?function={details_function}&symbol={details_symbol}&apikey={details_apiKey}";
 
-        // var stock = new StockViewModel
-        // {
-        //     Symbol = stockId,
-        //     Name = "Some Name",
-        //     Exchange = "Some Exchange ",
-        //     Type = "Some Type",
-        //     Description = "Some discription"
-        // };
+//Does not work
         using (HttpClient client = new HttpClient())
         {
             HttpResponseMessage response = await client.GetAsync(details_url);
@@ -37,8 +30,8 @@ public class StockController : Controller
             StockViewModel stock = JsonConvert.DeserializeObject<StockViewModel>(jsonData);
             return View(stock);
         }
-        // Pass the stock details to
     }
+}
 
     // private async Task<ActionResult> GetStockDetails(string stockId)
     // {

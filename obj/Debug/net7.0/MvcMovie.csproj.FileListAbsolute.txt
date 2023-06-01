@@ -391,3 +391,4 @@
 /Users/ashesh808/Documents/CSharp/TradeAlgos808/bin/Debug/net7.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
 /Users/ashesh808/Documents/CSharp/TradeAlgos808/obj/Debug/net7.0/MvcMovie.MvcApplicationPartsAssemblyInfo.cs
 /Users/ashesh808/Documents/CSharp/TradeAlgos808/obj/Debug/net7.0/MvcMovie.csproj.CopyComplete
+/Users/ashesh808/Documents/CSharp/TradeAlgos808/bin/Debug/net7.0/Newtonsoft.Json.dll

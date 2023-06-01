@@ -1,8 +1,16 @@
 @model StockViewModel
 
-<h1>Stock Details</h1>
-<p><strong>Symbol:</strong> @Model.Symbol</p>
-<p><strong>Name:</strong> @Model.Name</p>
-<p><strong>Exchange:</strong> @Model.Exchange</p>
-<p><strong>Type:</strong> @Model.Type</p>
+@if (string.IsNullOrEmpty(@Model.Symbol))
+{
+    <p><strong>Sorry!</strong> No details available for this asset. </p>
+}
+else
+{
+    <h1>Stock Details</h1>
+    <p><strong>Symbol:</strong> @Model.Symbol</p>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Exchange:</strong> @Model.Exchange</p>
+    <p><strong>Discription:</strong> @Model.Description</p>
+}
+
 

@@ -53,7 +53,7 @@ public class HomeController : Controller
 
         using (var reader = new StringReader(csvData))
         {
-            string line;
+            string? line;
             bool isFirstLine = true;
 
             while ((line = reader.ReadLine()) != null)
