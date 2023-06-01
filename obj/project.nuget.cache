@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QZXXrFglHWi4yY/omrgk6fyLdy9uOYxyvaqu7OwFvoyTc071AR9XwaXpIAJ69pmjyQw7J9ehZI3vXz7M0n/PyA==",
+  "dgSpecHash": "RX9n4HqeXHe98gpjM4OimwYy0BmASgqmJjVOqZ7rSWeWmr2FiWI1ayoO/iZkUpWowckG+LnTLqc/IrrhdJoSEw==",
   "success": true,
   "projectFilePath": "/Users/ashesh808/Documents/CSharp/TradeAlgos808/MvcMovie.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "/Users/ashesh808/.nuget/packages/microsoft.codeanalysis.razor/6.0.0/microsoft.codeanalysis.razor.6.0.0.nupkg.sha512",
     "/Users/ashesh808/.nuget/packages/microsoft.extensions.dependencymodel/7.0.0/microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
     "/Users/ashesh808/.nuget/packages/microsoft.netcore.platforms/2.1.2/microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "/Users/ashesh808/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/ashesh808/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
     "/Users/ashesh808/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/Users/ashesh808/.nuget/packages/system.reflection.metadata/5.0.0/system.reflection.metadata.5.0.0.nupkg.sha512",

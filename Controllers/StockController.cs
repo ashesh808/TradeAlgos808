@@ -1,82 +1,75 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Models;
-
 namespace MvcMovie.Controllers;
+using Newtonsoft.Json;
+
 
 public class StockController : Controller
 {
     // Other actions...
 
-    public ActionResult Details(string stockId)
+    public async Task<ActionResult> Details(string stockId)
     {
         // Retrieve stock details using the stockId from your data source
-        var stock = GetStockDetails(stockId);
+        string details_apiUrl = "https://www.alphavantage.co/query"; // API endpoint URL
+        string details_apiKey = "ZJ5TTTG78YBAY1D8"; // Replace with your API key
 
-        // Pass the stock details to the view
-        return View(stock);
-    }
+        string details_function = "OVERVIEW";
+        string details_symbol = stockId;
 
-    private StockViewModel GetStockDetails(string stockId)
-    {
-        string apiUrl = "https://www.alphavantage.co/query"; // API endpoint URL
-        string apiKey = "DLLF3V8I0GWA7MJG"; // Replace with your API key
+        string details_url = $"{details_apiUrl}?function={details_function}&symbol={details_symbol}&apikey={details_apiKey}";
 
-        string function = "OVERVIEW";
-        string symbol = stockId;
-
-        string url = $"{apiUrl}?function={function}&symbol={symbol}&apikey={apiKey}";
-
-        var stock = new StockViewModel
+        // var stock = new StockViewModel
+        // {
+        //     Symbol = stockId,
+        //     Name = "Some Name",
+        //     Exchange = "Some Exchange ",
+        //     Type = "Some Type",
+        //     Description = "Some discription"
+        // };
+        using (HttpClient client = new HttpClient())
         {
-            Symbol = stockId,
-            Name = "Some Name",
-            Exchange = "Some Exchange ",
-            Type = "Some Type",
-            Description = "Some discription"
-        };
+            HttpResponseMessage response = await client.GetAsync(details_url);
+            var jsonData = await response.Content.ReadAsStringAsync();
 
-        return stock;
-    }
-
-    private StockViewModel ParseCsvData(string csvData)
-    {
-        var stock = new StockViewModel
-        {
-            Symbol = " ",
-            Name = " ",
-            Exchange = " ",
-            Type = " ",
-            Description = " "
-        };
-
-        using (var reader = new StringReader(csvData))
-        {
-            string line;
-            bool isFirstLine = true;
-            while ((line = reader.ReadLine()) != null)
-            {
-                if (isFirstLine)
-                {
-                    // Skip the header line
-                    isFirstLine = false;
-                    continue;
-                }
-
-                var values = line.Split(',');
-
-                // Map the values to your Stock model properties
-                stock = new StockViewModel
-                {
-                    Symbol = values[0],
-                    Name = values[2],
-                    Exchange = values[5],
-                    Type = values[1],
-                    Description = values[3]
-                };
-            }
+            // Process the CSV data
+            StockViewModel stock = JsonConvert.DeserializeObject<StockViewModel>(jsonData);
+            return View(stock);
         }
-
-        return stock;
+        // Pass the stock details to
     }
-}
+
+    // private async Task<ActionResult> GetStockDetails(string stockId)
+    // {
+    //     string apiUrl = "https://www.alphavantage.co/query"; // API endpoint URL
+    //     string apiKey = "DLLF3V8I0GWA7MJG"; // Replace with your API key
+
+    //     string function = "OVERVIEW";
+    //     string symbol = stockId;
+
+    //     string url = $"{apiUrl}?function={function}&symbol={symbol}&apikey={apiKey}";
+
+    //     var stock = new StockViewModel
+    //     {
+    //         Symbol = stockId,
+    //         Name = "Some Name",
+    //         Exchange = "Some Exchange ",
+    //         Type = "Some Type",
+    //         Description = "Some discription"
+    //     };
+    //     using (HttpClient client = new HttpClient())
+    //     {
+    //         HttpResponseMessage response = await client.GetAsync(url);
+
+    //         if (response.IsSuccessStatusCode)
+    //         {
+    //             var csvData = await response.Content.ReadAsStringAsync();
+
+    //             // Process the CSV data
+    //             var stockData = ParseCsvData(csvData);
+    //         }
+    //     }
+
+    //     return stock;
+    // }
