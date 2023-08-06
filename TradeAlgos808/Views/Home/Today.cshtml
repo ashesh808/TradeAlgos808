@@ -1,0 +1,29 @@
+@model IEnumerable<StockViewModel>
+
+<h1>Stock and EFT Data for Today</h1>
+
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Currency</th>
+        <!-- Add other table headers as needed -->
+    </tr>
+    
+    @foreach (var stock in Model)
+    {
+        <tr>
+            <td>@stock.Symbol</td>
+            <td>@stock.Name</td>
+            <td>@stock.Exchange</td>
+            <!-- Display other properties as needed -->
+        </tr>
+    }
+</table>
+
+
+
+
+
+
+

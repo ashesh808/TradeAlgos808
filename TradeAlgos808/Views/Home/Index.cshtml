@@ -1,0 +1,42 @@
+﻿@model IEnumerable<StockViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Stocks and EFT Data for Today:</h1>
+</div>
+
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Exchange</th>
+        <!-- Add other table headers as needed -->
+    </tr>
+
+    @foreach (var stock in Model)
+    {
+        <tr>
+            <td>@stock.Symbol</td>
+            <td>
+                <a href="@Url.Action("Details", "Stock", new { stockId = stock.Symbol })">
+                    @stock.Name
+                </a>
+
+            </td>
+            @if (stock.Type == "Stock")
+            {
+                <td>S</td>
+            }
+            else
+            {
+                <td>E</td>
+            }
+            <td>@stock.Exchange</td>
+            <!-- Display other properties as needed -->
+        </tr>
+    }
+</table>
+
