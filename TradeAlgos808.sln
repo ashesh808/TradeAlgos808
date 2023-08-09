@@ -5,7 +5,7 @@ VisualStudioVersion = 25.0.1705.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlgos808", "TradeAlgos808\TradeAlgos808.csproj", "{DAE317A8-8193-461A-BCCF-63862709DD8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlgos808Tests", "TradeAlgos808Tests\TradeAlgos808Tests.csproj", "{6D3BEDB5-1AF1-4051-853E-7070C5822E60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlgos808.Tests", "TradeAlgos808.Tests\TradeAlgos808.Tests.csproj", "{110684DB-4A8B-459F-9662-7C8DE8AF3F56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{DAE317A8-8193-461A-BCCF-63862709DD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE317A8-8193-461A-BCCF-63862709DD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE317A8-8193-461A-BCCF-63862709DD8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D3BEDB5-1AF1-4051-853E-7070C5822E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D3BEDB5-1AF1-4051-853E-7070C5822E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D3BEDB5-1AF1-4051-853E-7070C5822E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D3BEDB5-1AF1-4051-853E-7070C5822E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110684DB-4A8B-459F-9662-7C8DE8AF3F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110684DB-4A8B-459F-9662-7C8DE8AF3F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110684DB-4A8B-459F-9662-7C8DE8AF3F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110684DB-4A8B-459F-9662-7C8DE8AF3F56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
